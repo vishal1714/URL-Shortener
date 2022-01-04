@@ -24,7 +24,7 @@ app.get('/', async (req, res, next) => {
 app.post('/shortner', async (req, res, next) => {
   const shortid = shortcode.generate();
   const { fullurl } = req.body;
-  const shorturl = req.protocol+"://" + req.get(`host`) + '/' + shortid;
+  const shorturl = "https://link.raje.tk/"  + shortid;
 
   var url = new URL({
     fullurl: fullurl,
