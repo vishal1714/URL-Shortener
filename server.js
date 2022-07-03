@@ -5,16 +5,13 @@ const ConnectDB = require('./config/db');
 const shortcode = require('shortid');
 const URL = require('./models/shorturl.model');
 
-
 ConnectDB();
-
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 //app.use(express.json({ extended: false }));
 
 app.set('view engine', 'ejs');
-
 app.get('/', async (req, res, next) => {
   const shortUrl = await URL.find();
   res.render('index', { shortUrls: shortUrl });
